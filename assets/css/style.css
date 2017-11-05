@@ -1,0 +1,18 @@
+body {
+  background-color: #888;
+  max-height: 100%;
+  }
+
+  .col-sm-12 {
+  text-align: center;
+  background-color: #0375B4;
+}
+
+h1 {
+  position: relative;
+}
+
+h2 {
+  position: absolute;
+  bottom: 0;
+}
