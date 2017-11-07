@@ -5,19 +5,22 @@ var instruments = ["mandolin", "harpsichord", "electric bass", "bagpipes", "elec
 function randomGuess() {
   var computerGuess = instruments[Math.floor(Math.random() * instruments.length)];
   return(computerGuess);
-}
+  }
 
 var a = randomGuess();
+var b = a.split ("");
 
-var b = a.split "";
 
-console.log(b)
-
-var output = document.getElementById("output")
-
-function GetSelectedItem(a) {
-  output.innerHTML = a;
+function startGame() {
+    document.getElementById("click").innerHTML = b;
 }
+
+
+
+
+// function GetSelectedItem() {
+//
+// }
 
 
 
