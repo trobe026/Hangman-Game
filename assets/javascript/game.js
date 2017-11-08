@@ -1,19 +1,28 @@
 var instruments = ["mandolin", "harpsichord", "electric bass", "bagpipes", "electric guitar", "xylophone"];
 
-// Randomly chooses a choice from the options array. This is the Computer's guess.
-
+// Randomly chooses from the instruments array. This is the Computer's guess.
 function randomGuess() {
   var computerGuess = instruments[Math.floor(Math.random() * instruments.length)];
   return(computerGuess);
   }
 
 var a = randomGuess();
-var b = a.split ("");
+var b = a.split("");
+console.log(b);
+
+  function startGame() {
+      $("#click").text(b);
+  }
+
+    console.log(b);
 
 
-function startGame() {
-    document.getElementById("click").innerHTML = b;
-}
+    var numbers = [1, 5, 10, 15];
+    var doubles = numbers.map(function test(y) {
+       return y * 3;
+    });
+
+    console.log(doubles);
 
 
 
