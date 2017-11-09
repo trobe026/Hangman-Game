@@ -1,9 +1,10 @@
+// start game variables
 var instruments = ["mandolin", "harpsichord", "electric bass", "bagpipes", "electric guitar", "xylophone"];
 var blanks = [];
 var lives = 7;
+// onkey variabes
 var guesses = [];
 var lettersGuessed = [];
-var randomWord = "";
 var computerGuess = instruments[Math.floor(Math.random() * instruments.length)];
 var word = computerGuess.split("");
 
@@ -15,7 +16,7 @@ function startGame() {
     for (i = 0;i < word.length;i++) {
       blanks[i] = "_";
       console.log(blanks);
-      $("#click").html("Current Word: " + blanks.join(' '));
+      $("#currentWord").html("Current Word: " + blanks.join(" "));
       $("#lettersGuessed").html("Words Guessed: "+ lettersGuessed.join(" "));
       $("#lives").html("Guesses Remaining: " + lives);
     }
@@ -40,21 +41,32 @@ function startGame() {
             lives -- ;
             lettersGuessed.push(guess);
         }
+        if(guesses == word) {
+          $("#hangman").html("<h2>YOU WIN!!!</h2>")
+        }
 
         for(i = 0; i<lettersGuessed.length ; i++){
-            $("#hangman").html("<img src=\"assets/images/Hangman-" + [i + 1] +".png\">");
+            $("#hangman").html("<img src=assets/images/Hangman-" + [i + 1] +".png>");
             if(i > 5){
-              $("#hangman").html("<h2>YOU LOSE!")
+              $("#hangman").html("<h2>YOU LOSE!</h2>")
             }
         }
-        $("#click").html("Current Word: " + blanks.join(' '));
+        $("#currentWord").html("Current Word: " + blanks.join(' '));
         $("#lives").html("Guesses Remaining: " + lives);
         $("#lettersGuessed").html("Letters Guessed: " + "<br>" + lettersGuessed.join(" "));
-        // $(".jumbotron").css("margin-bottom", "417px");
+        $("#col-sm-12").css("margin-bottom", "417px");
 
     }
 
-      // $("newGame").on('click', function() {
+    function reset() {
+      blanks = [];
+      lives = 7;
+      guesses = [];
+      lettersGuessed = [];
+
+    }
+
+      // $("newGame").on('currentWord', function() {
       //   blanks = [];
       //   lives = 7;
       //   guesses = [];
