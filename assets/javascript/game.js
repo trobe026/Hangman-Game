@@ -2,7 +2,7 @@ var instruments = ["mandolin", "harpsichord", "electric bass", "bagpipes", "elec
 var blanks = [];
 var lives = 7;
 var guesses = [];
-var wordsGuessed = [];
+var lettersGuessed = [];
 var randomWord = "";
 var computerGuess = instruments[Math.floor(Math.random() * instruments.length)];
 var word = computerGuess.split("");
@@ -16,10 +16,10 @@ function startGame() {
       blanks[i] = "_";
       console.log(blanks);
       $("#click").html("Current Word: " + blanks.join(' '));
-      $("#wordsGuessed").html("Words Guessed: "+ wordsGuessed.join(" "));
+      $("#lettersGuessed").html("Words Guessed: "+ lettersGuessed.join(" "));
       $("#lives").html("Guesses Remaining: " + lives);
     }
-    for(i = 0;i < wordsGuessed.length;i++) {
+    for(i = 0;i < lettersGuessed.length;i++) {
       $("#hangman").html("<img src=./assets/images/Hangman-" + [i + 1] + ".png>");
     }
   }
@@ -38,10 +38,10 @@ function startGame() {
           }
         if(word.indexOf(guess) < 0){
             lives -- ;
-            wordsGuessed.push(guess);
+            lettersGuessed.push(guess);
         }
 
-        for(i = 0; i<wordsGuessed.length ; i++){
+        for(i = 0; i<lettersGuessed.length ; i++){
             $("#hangman").html("<img src=\"assets/images/Hangman-" + [i + 1] +".png\">");
             if(i > 5){
               $("#hangman").html("<h2>YOU LOSE!")
@@ -49,7 +49,7 @@ function startGame() {
         }
         $("#click").html("Current Word: " + blanks.join(' '));
         $("#lives").html("Guesses Remaining: " + lives);
-        $("#wordsGuessed").html("Words Guessed: " + "<br>" + wrongGuesses.join(" "));
+        $("#lettersGuessed").html("Letters Guessed: " + "<br>" + lettersGuessed.join(" "));
         // $(".jumbotron").css("margin-bottom", "417px");
 
     }
