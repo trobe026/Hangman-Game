@@ -9,38 +9,34 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="./assets/javascript/game.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab|Passion+One" rel="stylesheet">
   </head>
 
   <body>
-    <div class="container">
+    <div class="container" style="width: 100%">
       <div class="row">
         <div class="col-sm-12">
-          <h1>Hangman</h1>
-          <h2>Instruments</h2>
-          <p>Press any key to start!</p>
-          Wins:
-          <p id="wins"></p>
-            <p id="output"></p>
-            <button onclick="startGame()">Click to Play!</button>
-            <div id="currentWord"></p>
-        </div>
+          <h1 id='title'>Hangman<h2>Instruments</h2></h1>
+          <p id="wins"><span class='glyphicon glyphicon-hand-down' aria-hidden="true"></span></p>
+          <p id="output"></p>
+          <button onclick="startGame()">Begin</button>
+          <div id='guessesLeft'></div>
       </div>
       <div class="row">
-        <div class="col-sm-6">
-          <h1 id="lettersGuessed"></h1>
-
-          <div id='guessesLeft'></div>
-
-          <p id="lives"></p>
-            <p id="output"></p>
-            <p id="click"></p>
+        <div class="col-sm-4" "col-xs-12">
+          <h3 id="currentWord"></h3>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4" "col-xs-12">
+          <h3 id="lettersGuessed"></h3>
+          <h4 id="lives"></h4>
+          <button id='newGame' onclick="reset()">Reset</button>
+        </div>
+        <div class="col-sm-4" "col-xs-12">
         <div id='hangman'></div>
-        <button id='newGame'>Reset</button>
         </div>
       </div>
     </div>
+  </div>
 
 
   </body>
