@@ -7,9 +7,9 @@ var guesses = [];
 var lettersGuessed = [];
 var computerGuess = instruments[Math.floor(Math.random() * instruments.length)];
 var word = computerGuess.split("");
-$("#newGame").css("visibility", "hidden");
 
-  // Randomly chooses from the instruments array. This is the Computer's guess.
+
+  // Randomly chooses word from the instruments array. This is the Computer's guess. Hides old html elements and reveals new. Adds hangman image
 function startGame() {
   computerGuess = instruments[Math.floor(Math.random() * instruments.length)];
   word = computerGuess.split("");
@@ -20,8 +20,21 @@ function startGame() {
     "font-family": "'Josefin Slab', serif",
     "background": "url('./assets/images/intersection.png')"
   });
-
-
+  $("#newGame").css({
+    visibility: "visible",
+    "padding": "20px"
+  });
+  $("#title").css({
+    visibility: "visible",
+  });
+  $("#start").css({
+    visibility: "hidden",
+    "padding": "20px"
+  });
+  $(".glyphicon").css({
+    visibility: "hidden",
+  });
+// creates "_" for each letter in word and joins them together. Adds html for letters guessed to populate.
   function blankGen() {
     for (i = 0;i < word.length;i++) {
       blanks[i] = "_";
@@ -40,26 +53,26 @@ function startGame() {
         "padding-top": "20px"
       });
     }
-    for(i = 0;i < lettersGuessed.length;i++) {
-      $("#hangman").html("<img src=./assets/images/Hangman-" + [i + 1] + ".png>");
-    }
   }
   blankGen();
     }
 
-
+// when key is pressed key is logged and passed into guess, each guess populates guesses array, for each guess, each blank is evaluated and if the guess matches it, it is placed in the blanks array.
     document.onkeyup = function(press){
         var guess = (press.key);
         console.log(guess);
         guesses.push(guess);
         for(i = 0; i < guesses.length; i++)
-          for(j = 0; j<blanks.length; j++){
+          for(j = 0; j < blanks.length; j++){
             if(guess == word[j]){
               console.log("correct!");
               blanks[j] = guess;
-              if(guesses == blanks) {
-                $("#hangman").html("<h2>YOU WIN!!!</h2>")
-              }
+            }
+            console.log(blanks);
+            console.log(word);
+            if(blanks == word) {
+              $('#hangman').html("<h1>YOU WIN!!!</h1>");
+              console.log("success")
             }
           }
         if(word.indexOf(guess) < 0){
@@ -70,11 +83,10 @@ function startGame() {
         for(i = 0; i<lettersGuessed.length ; i++){
             $("#hangman").html("<img src=assets/images/Hangman-" + [i + 1] +".png>");
             if(i > 5){
-              $('#newGame').remove();
-              $("#hangman").html("<h1>YOU LOSE!</h1>").css({
+              $('#start').remove();
+              $("#hangman").html("<h1>SORRY, YOU LOSE!</h1>").css({
                 color: "blue",
-                width: "300px",
-                "background-color": "red"
+                width: "100%",
               });
             }
         }
@@ -82,8 +94,12 @@ function startGame() {
         $("#lives").html("Guesses Remaining: " + lives);
         $("#lettersGuessed").html("Letters Guessed: " + "<br>" + lettersGuessed.join(" "));
         $("#col-sm-12").css("margin-bottom", "417px");
-
     }
+    // if(blanks == word) {
+    //   console.log(blanks);
+    //   console.log(word);
+    //   $("#hangman").html("<h2>YOU WIN!!!</h2>");
+    // }
 
     function reset() {
       blanks = [];

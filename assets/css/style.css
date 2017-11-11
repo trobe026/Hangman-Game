@@ -3,26 +3,46 @@ body {
   max-height: 100%;
   }
 
-  .col-sm-12 {
+.col-sm-12 {
   text-align: center;
   /*background-color: #0375B4;*/
   background-color: #333;
 }
 
+.navbar {
+  text-align: center;
+  color: #0375B4;
+  background-color: #333;
+}
+
 .col-sm-4 {
-text-align: center;
-}
-
-
-h1 {
-  position: relative;
-}
-
-h2 {
-  position: absolute;
-  bottom: 0;
+  text-align: center;
 }
 
 #newGame {
   visibility: hidden;
+}
+
+#title {
+  visibility: hidden;
+}
+
+#title h1 {
+  font-style: italic;
+  font-size: 4em;
+  width: 100%;
+}
+
+#title {
+  visibility: hidden;
+}
+
+.footer {
+  text-align: center;
+  width: 100%;
+  color: #0375B4;
+  background-color: #333;
+  position: absolute;
+  bottom: 0;
+  padding: 40px 0;
 }
