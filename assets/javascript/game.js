@@ -67,13 +67,13 @@ function startGame() {
             if(guess == word[j]){
               console.log("correct!");
               blanks[j] = guess;
+            if(blanks.join('') === word.join('')) {
+              $('#hangman').html("<h1>YOU WIN!!!</h1>");
+              console.log("success");
             }
+          }
             console.log(blanks);
             console.log(word);
-            if(blanks == word) {
-              $('#hangman').html("<h1>YOU WIN!!!</h1>");
-              console.log("success")
-            }
           }
         if(word.indexOf(guess) < 0){
             lives -- ;
