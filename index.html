@@ -13,12 +13,13 @@
   </head>
 
   <body>
-    <div class="container" style="width: 100%">
+    <div id="wrap">
+    <div id="main" class="container clear-top" style="width: 100%">
       <div class="row">
         <div class="nav navbar">
           <div id="title">
             <h1>Hangman</h1>
-            <h2>Instruments</h2>
+            <h2>Guess the Instrument!</h2>
           </div>
           <p><span class='glyphicon glyphicon-hand-down' aria-hidden="true"></span></p>
           <button id='start' onclick="startGame()">Click Here to Begin</button>
@@ -30,21 +31,19 @@
         <div class="col-sm-4" "col-xs-12">
           <h3 id="lettersGuessed"></h3>
           <h4 id="lives"></h4>
-          <button id='newGame' onclick="reset()">Reset</button>
+          <button id='newGame' onclick="reset()">New Game</button>
         </div>
         <div class="col-sm-4" "col-xs-12">
         <div id='hangman'></div>
+        <div id="win"></div>
         </div>
-      </div>
-      <div class="footer">
-        <p>&copy;Travis Roberts</p>
       </div>
     </div>
   </div>
+</div>
+      <div class="footer navbar-fixed-bottom">
+        <p>&copy;Travis Roberts</p>
+      </div>
 
-
-  </body>
-
-
-
+</body>
 </html>
